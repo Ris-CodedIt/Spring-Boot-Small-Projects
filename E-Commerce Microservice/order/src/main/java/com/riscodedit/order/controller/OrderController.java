@@ -34,7 +34,7 @@ public class OrderController {
 
     @GetMapping(path = "/{order_id}")
     @ResponseStatus(HttpStatus.OK)
-    public OrderResponseDto getOneOrder(@RequestParam("order_id") Long order_id){
+    public OrderResponseDto getOneOrder(@PathVariable("order_id") Long order_id){
        return orderService.getOneOrder(order_id);
     }
 }
