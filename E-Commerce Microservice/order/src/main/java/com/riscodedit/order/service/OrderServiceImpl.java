@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
 
         // call to inventory service to check if products in stock
        InventoryResponseDto[] inventoryResponseArray = webClient.get()
-                .uri("http:/localhost:8082/api/inventory", uriBuilder -> uriBuilder.queryParam("skuCode",skuCodes).build() )
+                .uri("http://localhost:8083/api/inventory", uriBuilder -> uriBuilder.queryParam("skuCode",skuCodes).build() )
                 .retrieve()
                 .bodyToMono(InventoryResponseDto[].class)
                 .block();
@@ -53,7 +53,6 @@ public class OrderServiceImpl implements OrderService {
        if(result){
            orderRepository.save(order);
        }else{
-
            throw  new IllegalArgumentException("product out of stock");
        }
 

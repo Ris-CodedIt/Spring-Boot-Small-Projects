@@ -20,6 +20,8 @@ public class inventoryController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public  List<InventoryResponseDto> isInStock(@RequestParam("skuCode") List<String> skuCode){
+        System.out.println("sku-----sku----------------------sku");
+        System.out.println(skuCode);
        return inventoryService.checkIsInStock(skuCode);
     }
 }

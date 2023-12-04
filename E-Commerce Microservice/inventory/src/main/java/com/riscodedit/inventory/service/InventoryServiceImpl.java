@@ -12,6 +12,11 @@ import java.util.List;
 @Service
 public class InventoryServiceImpl implements InventoryService{
     private InventoryRepository inventoryRepository;
+
+    public InventoryServiceImpl(InventoryRepository inventoryRepository) {
+        this.inventoryRepository = inventoryRepository;
+    }
+
     @Override
     @Transactional(readOnly = true)
     public List<InventoryResponseDto> checkIsInStock(List<String> skuCode) {
